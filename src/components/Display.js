@@ -1,9 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
-export default class Diplay extends React.Component {
+export default class Display extends React.Component {
   render () {
     return (
-      <div>Welcome to Diplay</div>
+      <div>
+        <div>{this.props.value}</div>
+      </div>
     )
   }
 }
+
+Display.propTypes = {
+  value: PropTypes.string
+};

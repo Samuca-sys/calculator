@@ -1,14 +1,13 @@
 import Display from "./Display";
 import ButtonPanel from "./ButtonPannel";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <Display />
+      <Display  value="117"/>
       <ButtonPanel />
-
     </div>
   );
 }
 
-export default App;
+
