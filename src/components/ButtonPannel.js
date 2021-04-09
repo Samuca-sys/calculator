@@ -1,9 +1,13 @@
 import React from 'react';
+import Button from './Button';
 
-export default class Button extends React.Component {
+export default class ButtonPanel extends React.Component {
   render () {
     return (
-      <div>Welcome to ButtonPanel</div>
+      <div>Welcome to ButtonPanel
+        <Button />
+      </div>
+      
     )
   }
 }

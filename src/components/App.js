@@ -1,7 +1,12 @@
+import Display from "./Display";
+import ButtonPanel from "./ButtonPannel";
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello World!</h1>
+      <Display />
+      <ButtonPanel />
+
     </div>
   );
 }
