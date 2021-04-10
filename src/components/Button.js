@@ -9,18 +9,25 @@ export default class Button extends React.Component {
   }
 
   render () {
+    const className = [
+      "component-button",
+      this.props.orange ? "orange" : "",
+    ]
+
     return (
-      <button 
-        className="component-button"
-        onClick={this.handleOnClick}
-      >
-        {this.props.name}
-      </button>
+      <div className={className.join(" ").trim()}>
+        <button 
+          onClick={this.handleOnClick}
+        >
+          {this.props.name}
+        </button>
+      </div>
     )
   }
 }
 
 Button.propTypes = {
   name: PropTypes.string, //assign strint to props called name
+  orange: PropTypes.bool,
   clickHandler: PropTypes.func
 };
