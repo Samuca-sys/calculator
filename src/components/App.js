@@ -3,6 +3,8 @@ import React from 'react';
 import Display from "./Display";
 import ButtonPanel from "./ButtonPannel";
 
+import calculate from "../logic/calculate";
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +16,7 @@ export default class App extends React.Component {
   }
 
   handleOnClick = (buttonName) => {
-    console.log('click', buttonName);
+    this.setState(calculate(this.state, buttonName));
   }
 
   render() {

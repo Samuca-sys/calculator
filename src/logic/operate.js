@@ -9,7 +9,7 @@ export default function operate(numberOne, numberTwo, operation) {
       return firstNumber.plus(secondNumber).toString();
     case '-':
       return firstNumber.minus(secondNumber).toString();
-    case '*':
+    case 'x':
       return firstNumber.times(secondNumber).toString();
     case '÷':
       return firstNumber.div(secondNumber).toString();
