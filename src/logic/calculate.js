@@ -1,5 +1,8 @@
+import Big from 'big.js';
+
 import operate from './operate';
 import isNumber from './isNumber';
+
 
 /**
  * Given a button name and a calculator data object, return an updated
@@ -35,8 +38,9 @@ export default function calculate(obj, buttonName) {
   
     //If there is no operation, update next and clear the value
     if(obj.next){
+      const next = obj.next === '0' ? buttonName : obj.next + buttonName
       return {
-        next: obj.next + buttonName,
+        next,
         total: null
       }
     } 
@@ -46,21 +50,31 @@ export default function calculate(obj, buttonName) {
     }
   }
 
+  if(buttonName === '%') {
+    if(obj.operation && obj.next) {
+      const result = operate(obj.total, obj.next, obj.operation)
+      return {
+        total: Big(result).div(Big('100')).toString(),
+        next: null,
+        operation: null,
+      }
+    }
+    if(obj.next) {
+      return {
+        next: Big(obj.next).div(Big('100')).toString(),
+      }
+    }
+    return {}
+  }
+
+
   if(buttonName === '.') {
     if(obj.next) {
+      //ignore a '.' if the next number already has one
       if(obj.next.includes('.')){
         return {}
       }
       return { next: obj.next + '.'};
-    }
-    if(obj.operation) {
-      	return {next: '0.'};
-    }
-    if(obj.total) {
-      if(obj.total.includes('.')) {
-        return {}
-      }
-      return { total: obj.total + '.'};
     }
     return {total: '0.'}
   }
