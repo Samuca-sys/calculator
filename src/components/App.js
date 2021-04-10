@@ -5,6 +5,8 @@ import ButtonPanel from "./ButtonPannel";
 
 import calculate from "../logic/calculate";
 
+import './App.css'
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +23,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="component-app">
         <Display  
           value={this.state.next || this.state.total|| '0'}
         />
